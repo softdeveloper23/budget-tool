@@ -13,10 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < numMonths; i++) {
       const monthIndex = (startMonth + i) % 12;
       const monthInput = document.createElement('div');
+      monthInput.classList.add('mb-3'); // Bootstrap margin bottom class
       monthInput.innerHTML = `
-        <label>${months[monthIndex]}: </label>
-        <input type="number" placeholder="Budget" class="budget-input" data-month="${months[monthIndex]}">
-        <input type="number" placeholder="Actual" class="actual-input" data-month="${months[monthIndex]}">
+        <label class="form-label">${months[monthIndex]}:</label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input type="number" class="form-control budget-input" placeholder="Budget Amount" data-month="${months[monthIndex]}">
+          <span class="input-group-text">$</span>
+          <input type="number" class="form-control actual-input" placeholder="Actual Spent" data-month="${months[monthIndex]}">
+        </div>
       `;
       monthsContainer.appendChild(monthInput);
     }

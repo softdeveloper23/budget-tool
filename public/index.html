@@ -19,10 +19,14 @@
       <option value="line">Line</option>
       <option value="radar">Radar</option>
     </select>
-
+  </div> 
+  
+  <div>
     <label for="num-months">How many months would you like to add (up to 12)?</label>
     <input type="number" id="num-months" min="1" max="12" placeholder="e.g. 4">
-    
+  </div>
+
+  <div id="months-form">
     <label for="start-month">Select the start month:</label>
     <select id="start-month">
       <option value="0">January</option>
@@ -38,21 +42,29 @@
       <option value="10">November</option>
       <option value="11">December</option>
     </select>
-    
-    <button id="add-months">Add Months</button>
-    
-    <div id="months-container">
-      <!-- JavaScript will populate this with month inputs -->
-    </div>
-    
-    <button id="generate-graph">Generate Graph</button>
+    <br>
+    <br>
+
+    <button type="button" class="btn btn-info" id="add-months">Add Months</button>
   </div>
 
-  <div id="graph-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="budgetChart"></canvas>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../assets/script.js"></script>
+    
+
+  <div id="months-container">
+    <!-- JavaScript will populate this with month inputs -->
+  </div>
+
+  <div>
+    <br>
+    <button type="button" class="btn btn-info" id="generate-graph">Generate Graph</button>
+  </div>  
+
+  <div id="graph-container" style="position: relative; height:60vh; width:100vw">
+    <canvas id="budgetChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../assets/script.js"></script>
 </body>
 </html>
