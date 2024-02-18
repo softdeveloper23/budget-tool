@@ -17,14 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
       monthInput.innerHTML = `
         <label class="form-label">${months[monthIndex]}:</label>
         <div class="input-group">
-          <span class="input-group-text">$</span>
           <input type="number" class="form-control budget-input" placeholder="Budget Amount" data-month="${months[monthIndex]}">
-          <span class="input-group-text">$</span>
           <input type="number" class="form-control actual-input" placeholder="Actual Spent" data-month="${months[monthIndex]}">
         </div>
       `;
       monthsContainer.appendChild(monthInput);
     }
+    // Initially disable the generate graph button
+    generateGraphButton.disabled = true;
+    // Add event listener to input fields for changes
+    document.querySelectorAll('.budget-input, .actual-input').forEach(input => {
+      input.addEventListener('input', checkInputs);
+    });
   }
 
   document.getElementById('add-months').addEventListener('click', function() {
@@ -32,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const startMonth = parseInt(startMonthSelect.value);
     addMonthInputs(numMonths, startMonth);
   });
+
+  function checkInputs() {
+    let allFilled = true;
+    document.querySelectorAll('.budget-input, .actual-input').forEach(input => {
+      if (input.value === '') {
+        allFilled = false;
+      }
+    });
+    generateGraphButton.disabled = !allFilled;
+  }
 
   function generateGraph() {
     const chartType = chartTypeSelect.value;
@@ -96,6 +110,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-generateGraphButton.addEventListener('click', generateGraph);
+  generateGraphButton.addEventListener('click', generateGraph);
 });
-
