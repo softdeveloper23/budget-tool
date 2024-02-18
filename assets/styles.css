@@ -19,6 +19,8 @@ body {
   button {
     padding: 10px 15px;
     cursor: pointer;
+    color: white;
+    background-color: #4FC3F7;
   }
   
   #graph-container {
