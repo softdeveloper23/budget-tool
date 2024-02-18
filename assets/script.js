@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         },
         animation: {
-          duration: 500, // Duration in milliseconds
+          duration: 1500, // Duration in milliseconds
           easing: 'delay' // An easing function
         }
       }
