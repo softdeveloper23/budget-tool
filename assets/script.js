@@ -57,27 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const budgetData = [];
     const actualData = [];
     let maxBudget = 0;
-
+  
     budgetInputs.forEach((input, index) => {
       const month = input.dataset.month;
       const budget = parseFloat(input.value);
       const actual = parseFloat(actualInputs[index].value);
-
+  
       labels.push(month);
       budgetData.push(budget);
       actualData.push(actual);
-
+  
       // Update maxBudget based on the highest input value
       maxBudget = Math.max(maxBudget, budget, actual);
     });
-
+  
     const ctx = document.getElementById('budgetChart').getContext('2d');
-
+  
     // If a chart instance already exists, destroy it before creating a new one
     if (budgetChart) {
       budgetChart.destroy();
     }
-
+  
     // Create the Chart with the selected chart type and customized animations
     budgetChart = new Chart(ctx, {
       type: chartType,
@@ -110,7 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+  
+    // Scroll to the graph container after the graph is generated
+    document.getElementById('graph-container').scrollIntoView({
+      behavior: 'smooth' // Smooth scrolling
+    });
   }
+  
 
   generateGraphButton.addEventListener('click', generateGraph);
 });
