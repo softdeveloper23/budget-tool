@@ -17,22 +17,20 @@
             <div class="card-body">
                 <div id="budget-tool" class="text-center">
                   <label for="chart-type">Select chart type:</label>
-                  <select id="chart-type">
+                  <select id="chart-type" class="form-select mb-3">
                     <option value="bar">Bar</option>
                     <option value="line">Line</option>
                     <option value="radar">Radar</option>
                   </select>
-                </div> 
+                 
                 
-                <div>
-                  <label for="num-months">How many months would you like to add (up to 12)?</label>
-                  <input type="number" id="num-months" min="1" max="12" placeholder="e.g. 4">
-                </div>
-              
-                <div id="months-form">
-                  <label for="start-month">Select the start month:</label>
-                  <select id="start-month">
-                    <option value="0">January</option>
+                
+                    <label for="num-months">How many months would you like to add (up to 12)?</label>
+                    <input type="number" id="num-months" class="form-control mb-3" min="1" max="12" placeholder="e.g. 4">
+
+                    <label for="start-month">Select the start month:</label>
+                    <select id="start-month" class="form-select mb-3">
+                        <option value="0">January</option>
                     <option value="1">February</option>
                     <option value="2">March</option>
                     <option value="3">April</option>
@@ -45,20 +43,14 @@
                     <option value="10">November</option>
                     <option value="11">December</option>
                   </select>
-                  <br>
-                  <br>
               
                   <button type="button" class="btn btn-info" id="add-months">Add Months</button>
-                </div>
               
-                <div id="months-container">
+                  <div id="months-container">
                   <!-- JavaScript will populate this with month inputs -->
-                </div>
+                  </div>
               
-                <div>
-                  <br>
                   <button type="button" class="btn btn-info" id="generate-graph" disabled>Generate Graph</button>
-                </div>
                 </div>
             </div>
         </div>
