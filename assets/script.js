@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
       monthInput.innerHTML = `
         <label class="form-label">${months[monthIndex]}:</label>
         <div class="input-group">
+          <span class="input-group-text">$</span>
           <input type="number" class="form-control budget-input" placeholder="Budget Amount" data-month="${months[monthIndex]}">
+          <span class="input-group-text">$</span>
           <input type="number" class="form-control actual-input" placeholder="Actual Spent" data-month="${months[monthIndex]}">
         </div>
       `;
