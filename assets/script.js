@@ -56,19 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const labels = [];
     const budgetData = [];
     const actualData = [];
+    const differenceData = []; // Array to store the differences
     let maxBudget = 0;
   
     budgetInputs.forEach((input, index) => {
       const month = input.dataset.month;
       const budget = parseFloat(input.value);
       const actual = parseFloat(actualInputs[index].value);
+      const difference = budget - actual; // Calculate the difference
   
       labels.push(month);
       budgetData.push(budget);
       actualData.push(actual);
+      differenceData.push(difference); // Add the difference to the array
   
       // Update maxBudget based on the highest input value
-      maxBudget = Math.max(maxBudget, budget, actual);
+      maxBudget = Math.max(maxBudget, budget, actual, Math.abs(difference));
     });
   
     const ctx = document.getElementById('budgetChart').getContext('2d');
@@ -95,6 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1
+        }, {
+          label: 'Difference',
+          data: differenceData,
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1
         }]
       },
       options: {
@@ -107,6 +116,17 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: {
           duration: 1500, // Duration in milliseconds
           easing: 'delay' // An easing function
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+          callbacks: {
+            label: function(tooltipItem, data) {
+              const datasetLabel = data.datasets[tooltipItem.datasetIndex].label;
+              const value = tooltipItem.yLabel;
+              return `${datasetLabel}: $${value}`;
+            }
+          }
         }
       }
     });
@@ -116,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
       behavior: 'smooth' // Smooth scrolling
     });
   }
-  
 
   generateGraphButton.addEventListener('click', generateGraph);
 });
