@@ -1,32 +1,36 @@
 /* styles.css */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 50px;
-    padding: 50px;
-    background-color: #f5f5f5;
-  }
-  
-  #budget-tool {
-    margin-bottom: 20px;
-  }
-  
-  #months-container {
-    margin-top: 10px;
-  }
-  
-  input {
-    margin: 5px;
-    padding: 5px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    cursor: pointer;
-    color: white;
-    background-color: #4FC3F7;
-  }
-  
-  #graph-container {
-    width: 100%;
-    height: 600px; /* Adjust as needed */
-  }
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 600px; /* Adjust based on your preference */
+  margin: auto;
+}
+
+.card {
+  background-color: #ffffff; /* Different background color */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Shadow effect */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+#graph-container {
+  width: 100%;
+  height: 600px; /* Adjust as needed */
+  /* Centering the canvas */
+  display: flex;
+  justify-content: center;
+}
+
+/* Additional styles for buttons and inputs if needed */
+.btn-info {
+  margin-bottom: 10px; /* Spacing below the button */
+}
+
+.form-select, .form-control {
+  margin-bottom: 10px; /* Spacing below the select and input fields */
+}
